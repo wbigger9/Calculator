@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+
+}
+
+    #operators,#numbers {
+        -ms-flex-align: center;
+        
+
+    }
+</style>
+
+</head>
+<body>
+<div>
+    <table id="operators">
+    <tr> 
+        <td name="+" id="+"> <button type="button"> + </button> </td>
+        <td name="-" id="-" > <button type="button"> - </button> </td>
+        <td name="*" id="*" > <button type="button"> * </button> </td>
+        <td name="/" id="/" > <button type="button"> / </button> </td>
+        <td name ="=" id="="> <button type="button"> = </button></td>
+        <td name ="+/-" id="+/-"> <button type="button"> +/- </button></td>
+        <td name ="ce" id="ce"> <button type="button"> CE </button></td>
+
+    </tr>
+    </table>
+ 
+    <table id="numbers">
+        <tr>
+           <td> <button button  type="button" name="0" id="0" >0</button> </td>
+           <td> <button  type="button" class = "numbers" id="1"name="1">1</button> </td>
+           <td> <button  type="button" class = "numbers"  id="2"   name="2">2</button> </td>
+           <td> <button  type="button" class = "numbers" id="3">3</button> </td>
+           <td> <button  type="button" class = "numbers"   id="4">4</button> </td>
+        </tr>
+        <td> <button  type="button" class = "numbers"   id="5">5</button> </td>
+        <td> <button  type="button"  class = "numbers"    id="6" >6</button> </td>
+        <td> <button  type="button" class = "numbers"    id="7">7</button> </td>
+        <td> <button  type="button" class = "numbers"     id="8">8</button> </td>
+        <td> <button  type="button" class = "numbers"    id="9">9</button> </td>
+    </table>
+
+</div>
+
+</body>
+<script>
+
+
+
+let operator = "" ;
+
+let number_one =  "" ;
+
+let number_two =  "" ;
+
+
+
+
+
+//operator starts as an empty set 
+let addition = document.getElementById("+").addEventListener("click", function(){operator = "+"});
+
+let subtraction = document.getElementById("-").addEventListener("click", function(){ operator = "-"; })
+
+let multiplication = document.getElementById("*").addEventListener("click",function(){ operator ="*"; ; return operator})
+
+let division = document.getElementById("/").addEventListener("click",function(){ operator = "/";  return operator})
+
+
+
+
+
+
+   
+   
+    
+let zero = document.getElementById('0')
+zero.addEventListener('click', function (){
+    if (operator === "") {
+        number_one = number_one + "0"
+    } else {
+        number_two = number_two + "0"
+    }
+})
+        
+            let one = document.getElementById('1')
+    
+        one.addEventListener('click', 
+            function (){
+                    
+                if(operator === "") 
+                    {   number_one = number_one + "1"}   
+                
+                else  
+                    {   number_two = number_two + "1"    }  
+        
+        }  
+        
+        );
+
+    let two = document.getElementById('2')
+    two.addEventListener('click', 
+    function (){
+                    
+                    if(operator === "") 
+                        {   number_one = number_one + "2"}   
+                    
+                    else  
+                        {   number_two = number_two + "2"    }  
+            
+            }  
+            
+            );
+
+let three = document.getElementById('3')
+three.addEventListener('click', 
+function (){ 
+    
+    if(operator === "") 
+        {number_one = number_one + "3" } 
+    else
+        {number_two = number_two + "3"  }
+        
+        }
+        
+        );
+    
+
+    let four = document.getElementById('4')
+    four.addEventListener('click',  function (){
+                    
+                    if(operator === "") 
+                        {   number_one = number_one + "4"}   
+                    
+                    else  
+                        {   number_two = number_two + "4"    }  
+            
+            }  
+            
+            );
+    let five = document.getElementById('5')
+    five.addEventListener('click',  function (){
+                    
+                    if( operator === "") 
+                        {   number_one = number_one + "5"}   
+                    
+                    else  
+                        {   number_two = number_two + "5"    }  
+            
+            }  
+            
+            );
+    let six = document.getElementById('6')
+    six.addEventListener('click',  function (){
+                    
+                    if( operator === "") 
+                        {   number_one = number_one + "6"}   
+                    
+                    else  
+                        {   number_two = number_two + "6"    }  
+            
+            }  
+            
+            );
+
+
+    let seven = document.getElementById('7')
+    seven.addEventListener('click',  function (){
+                    
+                    if (operator === "") 
+                    
+                        {   number_one = number_one + "7"}   
+                    
+                    else  
+                        number_two = ""
+                        {   number_two = number_two + "7"    }  
+            
+            }  
+            
+            );
+
+
+    let eight = document.getElementById('8')
+    eight.addEventListener('click',  function (){
+                    
+                    if(operator === "") 
+                        {   number_one = number_one + "8"}   
+                    
+                    else  
+                        {   number_two = number_two + "8"    }  
+            
+            }  
+            
+            );
+
+
+    let nine = document.getElementById('9')
+    nine.addEventListener('click',  function (){
+                    
+                    if( operator === "") 
+                        {   number_one = number_one + "9"}   
+                    
+                    else  
+                        {   number_two = number_two + "9"    }  
+            
+            }  
+            
+            );
+
+
+console.log(number_one)
+
+
+
+function Calculator(a, b, c) {
+    if (b == "+"){
+        return a + c
+    }
+    else if (b === "-"){
+        return a - c
+    }
+    else if (b === "*"){
+        return a *  c
+    }
+    else if (b === "/") {
+        if (c === 0) {
+            return console.log("Error: Division by zero");
+        } else {
+            return a / c
+        }
+    } 
+    else {
+        return console.log("Invalid operator");
+    }
+}
+
+
+
+
+
+
+let equals = document.getElementById("=").addEventListener("click" , function(){ 
+    console.log(number_one)
+    console.log (number_two)
+    number_one = Number(number_one);
+    //turns a string constructed by the user into a number
+        
+    number_two = Number(number_two);
+
+    console.log(Calculator(number_one , operator , number_two)) 
+    number_one = Calculator(number_one , operator , number_two)
+    //this should set number_one equal to the return value of Calculator()
+    operator = ""
+    number_two = ""
+    //after returning a calculation, calculator () sets everything [except number_one but that comes next] equal to an empty string
+
+});
+
+    let clear = document.getElementById("ce")
+        clear.addEventListener("click" , function(){
+            operator = ""            
+            number_one = ""
+            number_two = ""
+            console.log(operator)
+        })
+
+
+
+let negativeSignButton = document.getElementById('+/-');
+negativeSignButton.addEventListener('click', function() {
+    if (operator === ""){
+        number_one = Number(number_one) * -1;
+        number_one = String(number_one);}
+    else {
+        number_two = Number(number_two) * -1;
+        number_two = Number(number_two);
+    }
+});
+//clear returns everything to an empty string
+</script>
+
+
+
+
+
+
