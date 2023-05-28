@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://static.codehs.com/gulp/80550f5fc4071985bfef352d04f005ca3de931d3/chs-js-lib/chs.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+#myTBLB, # {
+    background-size: cover;
+}
+</style>
+    
+
+<script>
+    let intervalId; // Variable to hold the interval ID
+    // let getRows = prompt("number of rows: ");
+    // let getColumns = prompt("number of columns: ");
+    function generateTable() {
+  // creates a <table> element and a <tbody> element
+    // gets rows and columns # from user
+    let getRows = 8;
+    let getColumns = 8;
+  // table and table body
+    const tbl = document.createElement("table");
+  // id set to myTbl
+  tbl.setAttribute("id", "myTbl");
+  const tblBody = document.createElement("tbody");
+  // id set to myTblB
+  tblBody.setAttribute("id", "myTblB");
+
+  // creating all cells
+  for (let i = 0; i < getRows; i++) {
+    // creates a table row
+    const row = document.createElement("tr");
+
+    for (let j = 0; j < getColumns; j++) {
+      // Create a <td> element and a text node, make the text
+      // node the contents of the <td>, and put the <td> at
+      // the end of the table row
+      const cell = document.createElement("td");
+      const cellText = document.createTextNode('etch-a-sketch');
+     // mouse over event for each sell
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+      cell.addEventListener("mouseover", function makeCellBlack(){
+        cell.style.backgroundColor = "black";
+      
+      });
+    }
+
+    // add the row to the end of the table body
+    tblBody.appendChild(row);
+  }
+
+  // put the <tbody> in the <table>
+  tbl.appendChild(tblBody);
+  // appends <table> into <body>
+  document.body.appendChild(tbl);
+  // sets the border attribute of tbl to '2'
+  tbl.setAttribute("border", "2");
+  // Change colors at random intervals
+  // Clear previous interval
+    if (intervalId) {
+        clearInterval(intervalId);
+    }
+
+  setInterval(changeColors, getRandomTime(1000, 9000));
+   
+
+    function changeColors() {
+        const cells = document.querySelectorAll("#myTbl td");
+
+        cells.forEach(function(cell) {
+            const randomColor = getRandomColor();
+            cell.style.backgroundColor = randomColor;
+        });
+    }
+
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+
+        return color;
+    }
+
+    function getRandomTime(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+}
+</script>
+
+<input type="button" value="Generate a table" onclick="generateTable()" />
+
+</body>
+</html>
